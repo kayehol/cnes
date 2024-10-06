@@ -1,0 +1,13 @@
+.mat-mdc-card {
+  margin: 1em 10em;
+  padding: 1em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-row {
+  display:flex;
+}

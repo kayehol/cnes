@@ -54,12 +54,15 @@
             <mat-list-item role="listitem">
               CEP: {{ unit?.codigo_cep_estabelecimento }}
             </mat-list-item>
+            <mat-list-item role="listitem">
+              Latitude: {{ unit?.latitude_estabelecimento_decimo_grau }}
+            </mat-list-item>
+            <mat-list-item role="listitem">
+              Longitude: {{ unit?.longitude_estabelecimento_decimo_grau }}
+            </mat-list-item>
           </mat-list>
         </mat-card-content>
       </mat-card>
-    <div>
-      <iframe [src]="getSanitizedUrl()" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
     }
   </div>
 </div>
