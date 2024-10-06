@@ -13,4 +13,8 @@ export class NewUnitService {
   getAddress(cep: string) {
     return this.http.get<AddressDTO>(this.url + "/" + cep + "/json/");
   }
+
+  saveUnit(unit: string) {
+    return this.http.post("https://localhost:3000/estabelecimentos", { unit });
+  }
 }

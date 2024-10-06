@@ -4,6 +4,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition
+} from '@angular/material/snack-bar';
 import { NewUnitService } from './new-unit.service';
 import { AddressDTO } from './address-dto.interface';
 
@@ -38,15 +43,30 @@ export class NewUnitComponent {
     uf: new FormControl(''),
     cep: new FormControl(''),
   });
+  horizontalPosition: MatSnackBarHorizontalPosition = 'right';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
 
-  constructor(private newUnitService: NewUnitService) { }
+  constructor(
+    private newUnitService: NewUnitService,
+    private snackBar: MatSnackBar
+  ) { }
 
   save() {
-    console.log(this.unitForm.value);
+    this.newUnitService.saveUnit(JSON.stringify(this.unitForm.value))
+      .subscribe({
+        next: (data) => console.log(data),
+        error: (err) => {
+          this.snackBar.open('Você não possui autorização', 'Okay', {
+            horizontalPosition: this.horizontalPosition,
+            verticalPosition: this.verticalPosition,
+          });
+        }
+      });
   }
 
   getAddress() {
     const cep = this.unitForm.controls['cep'].value!;
+
     this.newUnitService.getAddress(cep)
       .subscribe((data: AddressDTO) => {
         this.unitForm.patchValue({
