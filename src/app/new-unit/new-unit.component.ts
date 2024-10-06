@@ -9,6 +9,7 @@ import {
   MatSnackBarHorizontalPosition,
   MatSnackBarVerticalPosition
 } from '@angular/material/snack-bar';
+import { NgxMaskDirective } from 'ngx-mask';
 import { NewUnitService } from './new-unit.service';
 import { AddressDTO } from './address-dto.interface';
 import { MenuComponent } from '../menu/menu.component';
@@ -24,6 +25,7 @@ import { MenuComponent } from '../menu/menu.component';
     MatButtonModule,
     MatCardModule,
     MenuComponent,
+    NgxMaskDirective
   ],
   templateUrl: './new-unit.component.html',
   styleUrl: './new-unit.component.css'

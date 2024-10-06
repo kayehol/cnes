@@ -35,12 +35,12 @@
           <div class="form-row">
             <mat-form-field appearance="outline">
               <mat-label for="telefone">Telefone: </mat-label>
-              <input matInput placeholder="Telefone" id="telefone" type="text" formControlName="telefone">
+              <input matInput placeholder="Telefone" id="telefone" type="text" formControlName="telefone" mask="(00) 00000-0000">
             </mat-form-field>
 
             <mat-form-field appearance="outline">
               <mat-label for="email">E-mail: </mat-label>
-              <input matInput placeholder="E-mail" id="email" type="text" formControlName="email">
+              <input matInput placeholder="E-mail" id="email" type="text" formControlName="email" mask="A*@A*.SSS">
             </mat-form-field>
           </div>
 
@@ -59,7 +59,7 @@
           <div class="form-row">
             <div>
               <mat-form-field appearance="outline"> <mat-label for="cep">CEP: </mat-label>
-                <input matInput placeholder="CEP" id="cep" type="text" formControlName="cep">
+                <input matInput placeholder="CEP" id="cep" type="text" formControlName="cep" mask="00000-000">
               </mat-form-field>
             </div>
             <button id="btn-buscar" mat-flat-button color="secondary" (click)="getAddress()">
