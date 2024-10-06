@@ -7,6 +7,7 @@ import { MatListModule } from '@angular/material/list';
 import { DomSanitizer } from '@angular/platform-browser';
 import { UnitService } from './unit.service';
 import { Unit } from './unit.interface';
+import { MenuComponent } from '../menu/menu.component';
 
 @Component({
   selector: 'app-unit',
@@ -16,6 +17,7 @@ import { Unit } from './unit.interface';
     MatProgressSpinnerModule,
     MatCardModule,
     MatListModule,
+    MenuComponent
   ],
   templateUrl: './unit.component.html',
   styleUrl: './unit.component.css'
