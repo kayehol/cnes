@@ -1,1 +1,67 @@
-<p>unit works!</p>
+<div id="content">
+  <div id="header">
+    <h1><strong>CNES</strong></h1>
+    <div id="sub-header">
+      <h2><strong>Estabelecimentos</strong></h2>
+    </div>
+  </div>
+  <div>
+    @if (loading) {
+      <div id="spinner-content">
+        <mat-spinner></mat-spinner>
+      </div>
+    } @else {
+      <mat-card class="unit-card">
+        <mat-card-header>
+          <mat-card-title>Código CNES: {{ unit?.codigo_cnes }}</mat-card-title>
+          <mat-card-subtitle>Razão social: {{ unit?.nome_razao_social }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-list role="list">
+            <mat-list-item role="listitem">
+              Nome fantasia: {{ unit?.nome_fantasia }}
+            </mat-list-item>
+            <mat-list-item role="listitem">
+              CNPJ: {{ unit?.numero_cnpj }}
+            </mat-list-item>
+            <mat-list-item role="listitem">
+              Telefone: {{ unit?.numero_telefone_estabelecimento }}
+            </mat-list-item>
+            <mat-list-item role="listitem">
+              E-mail: {{ unit?.endereco_email_estabelecimento }}
+            </mat-list-item>
+            <mat-list-item role="listitem">
+              Código do estabelecimento: {{ unit?.codigo_estabelecimento_saude}}
+            </mat-list-item>
+            <mat-list-item role="listitem">
+              Turno de atendimento: {{ unit?.descricao_turno_atendimento }}
+            </mat-list-item>
+            <mat-list-item role="listitem">
+              Endereço: {{ unit?.endereco_estabelecimento }}
+            </mat-list-item>
+            <mat-list-item role="listitem">
+              Número: {{ unit?.numero_estabelecimento }}
+            </mat-list-item>
+            <mat-list-item role="listitem">
+              Bairro: {{ unit?.bairro_estabelecimento }}
+            </mat-list-item>
+            <mat-list-item role="listitem">
+              Município: {{ unit?.codigo_municipio }}
+            </mat-list-item>
+            <mat-list-item role="listitem">
+              UF: {{ unit?.codigo_uf }}
+            </mat-list-item>
+            <mat-list-item role="listitem">
+              CEP: {{ unit?.codigo_cep_estabelecimento }}
+            </mat-list-item>
+          </mat-list>
+        </mat-card-content>
+      </mat-card>
+    <div>
+      <iframe [src]="getSanitizedUrl()" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    }
+  </div>
+</div>
+
+
