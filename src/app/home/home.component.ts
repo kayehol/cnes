@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MatTableModule, MatTableDataSource } from '@angular/material/table'
-import { HomeService } from './home.service';
+import { UnitService } from '../unit/unit.service';
 import { Unit, UnitsDTO } from '../unit/unit.interface';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MenuComponent } from '../menu/menu.component';
 
 @Component({
   selector: 'app-home',
@@ -19,6 +20,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatProgressSpinnerModule,
     MatFormFieldModule,
     MatInputModule,
+    MenuComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
@@ -35,7 +37,7 @@ export class HomeComponent {
   dataSource: any;
   loading: boolean = false;
 
-  constructor(private homeService: HomeService) { }
+  constructor(private unitService: UnitService) { }
 
   ngOnInit(): void {
     this.loading = true;
@@ -43,7 +45,7 @@ export class HomeComponent {
   }
 
   getUnits(): void {
-    this.homeService.getUnits()
+    this.unitService.getUnits()
       .subscribe((data: UnitsDTO) => {
         this.units = data.estabelecimentos;
         this.dataSource = new MatTableDataSource(this.units);

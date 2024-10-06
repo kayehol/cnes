@@ -11,6 +11,7 @@ import {
 } from '@angular/material/snack-bar';
 import { NewUnitService } from './new-unit.service';
 import { AddressDTO } from './address-dto.interface';
+import { MenuComponent } from '../menu/menu.component';
 
 @Component({
   selector: 'app-new-unit',
@@ -22,6 +23,7 @@ import { AddressDTO } from './address-dto.interface';
     MatInputModule,
     MatButtonModule,
     MatCardModule,
+    MenuComponent,
   ],
   templateUrl: './new-unit.component.html',
   styleUrl: './new-unit.component.css'
