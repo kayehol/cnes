@@ -13,6 +13,9 @@ export interface Unit {
   codigo_municipio: number;
   codigo_uf: number;
   codigo_cep_estabelecimento: string;
+  latitude_estabelecimento_decimo_grau: number;
+  longitude_estabelecimento_decimo_grau: number;
+
 }
 
 export interface UnitsDTO {
