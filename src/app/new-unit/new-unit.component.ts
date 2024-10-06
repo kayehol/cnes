@@ -3,6 +3,9 @@ import { FormsModule, FormGroup, FormControl, ReactiveFormsModule } from '@angul
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import { NewUnitService } from './new-unit.service';
+import { AddressDTO } from './address-dto.interface';
 
 @Component({
   selector: 'app-new-unit',
@@ -12,7 +15,8 @@ import { MatInputModule } from '@angular/material/input';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule,
   ],
   templateUrl: './new-unit.component.html',
   styleUrl: './new-unit.component.css'
@@ -35,8 +39,24 @@ export class NewUnitComponent {
     cep: new FormControl(''),
   });
 
-  onSubmit() {
+  constructor(private newUnitService: NewUnitService) { }
+
+  save() {
     console.log(this.unitForm.value);
+  }
+
+  getAddress() {
+    const cep = this.unitForm.controls['cep'].value!;
+    this.newUnitService.getAddress(cep)
+      .subscribe((data: AddressDTO) => {
+        this.unitForm.patchValue({
+          cep: data.cep,
+          endereco: data.logradouro,
+          bairro: data.bairro,
+          municipio: data.localidade,
+          uf: data.uf
+        });
+      })
   }
 
 }
