@@ -19,4 +19,9 @@ export const routes: Routes = [
     title: 'Nova unidade',
     component: NewUnitComponent,
   },
+  {
+    path: '',
+    redirectTo: '/cnes/estabelecimentos',
+    pathMatch: 'full',
+  },
 ];

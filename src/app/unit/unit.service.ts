@@ -6,9 +6,7 @@ import { UnitsDTO, Unit } from './unit.interface';
   providedIn: 'root'
 })
 export class UnitService {
-  //url = 'https://apidadosabertos.saude.gov.br/cnes/estabelecimentos?limit=100&offset=1';
-  //url = 'https://viacep.com.br/ws/57035390/json/';
-  //url = 'https://wttr.in/Maceio?format=j1';
+  //url = 'https://apidadosabertos.saude.gov.br/cnes/estabelecimentos';
   url = 'http://localhost:3000/estabelecimentos'
 
   constructor(private http: HttpClient) { }
