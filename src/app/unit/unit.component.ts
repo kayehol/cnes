@@ -4,7 +4,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatListModule } from '@angular/material/list';
-import { DomSanitizer } from '@angular/platform-browser';
 import { UnitService } from './unit.service';
 import { Unit } from './unit.interface';
 import { MenuComponent } from '../menu/menu.component';
@@ -29,7 +28,7 @@ export class UnitComponent {
 
   private route = inject(ActivatedRoute);
 
-  constructor(private unitService: UnitService, private sanitizer: DomSanitizer) { }
+  constructor(private unitService: UnitService) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => this.codigo = params.get('codigo')!);
