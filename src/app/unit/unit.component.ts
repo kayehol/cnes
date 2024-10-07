@@ -26,7 +26,6 @@ export class UnitComponent {
   loading: boolean = false;
   unit: Unit | undefined
   codigo!: string;
-  mapUrl: string = "https://www.google.com/maps?q=";
 
   private route = inject(ActivatedRoute);
 
@@ -43,12 +42,6 @@ export class UnitComponent {
       .subscribe(data => {
         this.unit = data;
         this.loading = false;
-        this.mapUrl += `${data.latitude_estabelecimento_decimo_grau.toString()},${data.longitude_estabelecimento_decimo_grau.toString()}`
       })
   }
-
-  getSanitizedUrl() {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(this.mapUrl)
-  }
-
 }
