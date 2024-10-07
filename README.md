@@ -9,6 +9,10 @@ assistencial, independentemente de sua natureza jurídica
 
 ## Instruções
 
+Dependências:
+- Node v18.17.1
+- NPM v10
+
 ### Usando proxy
 É necessário usar uma API de proxy para chamar a API oficial do CNES,
 pois ela não permite chamada CORS.
@@ -21,7 +25,7 @@ pois ela não permite chamada CORS.
 ### 2 - Rodando esta aplicação
 - Clone este repositório
 - Instale as dependências com `npm install`
-- Rode o projeto localmente com `ng serve`
+- Rode o projeto localmente com `ng serve` ou `npx ng serve`
 - Acesse a aplicação em `localhost:4200`
 
 ### Usando extensão Cross Domain - CORS
